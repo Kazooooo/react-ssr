@@ -19,7 +19,7 @@ app.use(
 ));
 app.use(express.static("public"));
 app.get("*", (req, res) => {
-  const store = createStore();
+  const store = createStore(req);
 
   // console.log(matchRoutes(Routes, req.path));
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
